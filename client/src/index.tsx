@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './modules/app/presentation/App';
+import App from './modules/meetup/presentation/App';
 
 ReactDOM.render(
   <React.StrictMode>
