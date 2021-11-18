@@ -3,9 +3,8 @@
     "outDir": "./public/js/",
     "noImplicitAny": true,
     "module": "es6",
-    "moduleResolution": "node",
     "target": "es6",
-    "allowJs": true,
+    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -13,7 +12,6 @@
     "jsx": "react",
     "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true,
-    "skipLibCheck": true,
     "strict": true,
     "lib": [
       "dom",
