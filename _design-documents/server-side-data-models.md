@@ -7,24 +7,23 @@
 **User**
 
 - *id*
-
   - string
   - UUID
-
 - *email*
 
   - string
-  - integer max
+  - max length 254 char
   - email format
-
-- *username (optional)* 
-
+- *display name (optional)* 
   - string
   - min length: 1 char
   - max length: 35 char
   - A-Z a-z 0-9 . -  _ [ ] |
-
   
+- *password*
+  - string (hashed)
+  - max length: 36 char
+  - all characters
 
 - *profile picture (optional)*
 

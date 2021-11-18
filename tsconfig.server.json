@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "target": "es6",
+    "module": "commonjs",
+    "declaration": true,
+    "lib": ["esnext"],
+    "strict": true,
+    "sourceMap": true,
+    "typeRoots": ["node_modules/@types"],
+    "types": [
+      "node", "express"
+    ]
+  },
+  "include": [
+    "src/server/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
