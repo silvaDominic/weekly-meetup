@@ -1,4 +1,5 @@
 import path from 'path';
+import Dotenv from 'dotenv-webpack';
 import nodeExternals from 'webpack-node-externals';
 
 const __dirname = path.resolve();
@@ -6,6 +7,9 @@ const __dirname = path.resolve();
 const serverConfig = {
     mode: process.env.NODE_ENV || 'development',
     entry: './src/server/index.ts',
+    plugins: [
+        new Dotenv(),
+    ],
     module: {
         rules: [
             {
