@@ -6,7 +6,7 @@ const __dirname = path.resolve();
 
 const serverConfig = {
     mode: process.env.NODE_ENV || 'development',
-    entry: './src/server/index.ts',
+    entry: './src/server/server.ts',
     plugins: [
         new Dotenv(),
     ],
