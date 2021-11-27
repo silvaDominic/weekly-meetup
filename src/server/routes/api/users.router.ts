@@ -1,10 +1,11 @@
 import express from 'express';
 import db from '../../db';
+import {generateHashSync} from "../../common/utilities/hash.util";
 
-const router = express.Router();
+export const userRouter = express.Router();
 
 // GET ALL USERS
-router.post('/', async (req, res, next) => {
+userRouter.post('/', async (req, res, next) => {
   try {
     const result = await db.userQueries.selectAllUsers();
     res.send(result);
@@ -15,7 +16,7 @@ router.post('/', async (req, res, next) => {
 });
 
 // GET USER BY ID
-router.get('/:userId', async (req, res, next) => {
+userRouter.get('/:userId', async (req, res, next) => {
   try {
     const result = await db.userQueries.selectUser(req.params.userId);
     res.json(result[0]);
@@ -26,13 +27,13 @@ router.get('/:userId', async (req, res, next) => {
 });
 
 // CREATE NEW USER
-router.post('/register', async (req, res, next) => {
+userRouter.post('/register', async (req, res, next) => {
   try {
     const newUser = req.body;
     const result = await db.userQueries.insertUser(
       newUser.email,
       newUser.displayName,
-      newUser.password
+      generateHashSync(newUser.password)
     );
     res.send(result);
   } catch (err: any) {
@@ -42,7 +43,7 @@ router.post('/register', async (req, res, next) => {
 });
 
 // MODIFY EXISTING USER BY ID
-router.put('/:userId', async (req, res, next) => {
+userRouter.put('/:userId', async (req, res, next) => {
   try {
     const user = req.body;
     const result = await db.userQueries.updateUser(req.params.userId, user);
@@ -54,7 +55,7 @@ router.put('/:userId', async (req, res, next) => {
 });
 
 // DELETE EXISTING USER BY ID
-router.delete('/:userId', async (req, res, next) => {
+userRouter.delete('/:userId', async (req, res, next) => {
   try {
     const result = await db.userQueries.deleteUser(req.params.userId);
     res.send(result);
@@ -63,5 +64,3 @@ router.delete('/:userId', async (req, res, next) => {
     res.status(500).send({msg: "DELETE USER Route Error", error: err.message});
   }
 });
-
-export default router;
