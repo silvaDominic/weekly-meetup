@@ -5,10 +5,10 @@ export const db = mysql2.createPool({
   host: HOST_NAME,
   user: DB_USER,
   password: DB_PASSWORD,
-  database: DB_NAME
+  database: DB_NAME,
 }).promise();
 
-import { userQueries } from './queries/users';
+import { userQueries } from './queries/users.query';
 export default {
   userQueries,
 }

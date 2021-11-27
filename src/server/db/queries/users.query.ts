@@ -13,8 +13,11 @@ function selectUser(id: string) {
   return db.query(`SELECT * FROM users WHERE id = ?`, [id]);
 }
 
+function findUser(column: string, value: string) {
+  return db.query(`SELECT * FROM users WHERE ?? = ?`, [column, value]);
+}
+
 function updateUser(id: string, user: {email: string, displayName: string, password: string}) {
-  console.log("UPDATED USER: ", user)
   return db.query(`UPDATE users SET ? WHERE id = ?`, [user, id]);
 }
 
@@ -26,6 +29,7 @@ export const userQueries = {
   insertUser,
   selectAllUsers,
   selectUser,
+  findUser,
   updateUser,
   deleteUser,
 }
