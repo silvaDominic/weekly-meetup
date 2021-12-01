@@ -21,11 +21,11 @@ This project is both a technical exercise as well as a response to the tedium of
 
 Every week a video meetup will be generated with a series of discussion topics that have been selected throughout the week.
 
-The [initial] intention is to reserve only a single day a week to a digital meetup to give more significance to the meetup as well as to promote a higher quality discussion. The chosen date will remain the same *or* it will change week to week depending on a vote (TBD). In order to prevent the event from becoming too formal in creation and nature, members can suggest topics throughout the week that can be up/down voted. This will create a natural hierarchy of topics ordered by what a group finds to be most interesting/valuable. At some point during the week (*x* number of hours before the start of the event), topic suggestions will be closed. Throughout the same voting period of time, members can choose to indicate that they are attending or not, although this is not required and will not be required to *enter* a meetup.
+The [initial] intention is to reserve only a single day a week to a digital meetup to give more significance to the meetup as well as to promote a higher quality discussion. The chosen date will remain the same *or* it will change week to week depending on a vote (TBD). In order to prevent the meetup from becoming too formal in creation and nature, members can suggest topics throughout the week that can be up/down voted. This will create a natural hierarchy of topics ordered by what a group finds to be most interesting/valuable. At some point during the week (*x* number of hours before the start of the meetup), topic suggestions will be closed. Throughout the same voting period of time, members can choose to indicate that they are attending or not, although this is not required and will not be required to *enter* a meetup.
 
 **Meetup Lifecycle**
 
-Meetup is implicitly scheduled --> Topics are open to suggestion --> Members add topics and vote on others, members optionally indicate if they are attending or not --> Topics close and are locked *x* hours before event --> Meetup occurs --> Topics are cleared --> (Repeat)
+Meetup is implicitly scheduled --> Topics are open to suggestion --> Members add topics and vote on others, members optionally indicate if they are attending or not --> Topics close and are locked *x* hours before meetup--> Meetup occurs --> Topics are cleared --> (Repeat)
 
 ## Features
 

@@ -31,7 +31,7 @@
   - max size: 10mb
   - Base64 encoded
 
-**Event**
+**Meetup**
 
 - *id*
   - string
@@ -64,8 +64,8 @@
 
 **Participants**
 
-	- *event_id* (references event id)
-	- *user_id* (references user id)
+- *event_id* (references event id)
+- *user_id* (references user id)
 
 **RSVPs**
 
