@@ -7,21 +7,21 @@ CREATE TABLE users (
     display_name VARCHAR(35) NOT NULL,
     password CHAR(60) NOT NULL,
     created_at TIMESTAMP DEFAULT NOW(),
-    
+
     PRIMARY KEY (id)
 );
 
-CREATE TABLE events (
+CREATE TABLE meetup (
 	id VARCHAR(36) NOT NULL,
     create_at TIMESTAMP DEFAULT NOW(),
-    
+
     PRIMARY KEY (id)
 );
 
 CREATE TABLE rsvps (
 	event_id VARCHAR(36) NOT NULL,
     user_id VARCHAR(36) NOT NULL,
-    
+
 	PRIMARY KEY (event_id, user_id),
     FOREIGN KEY (event_id) REFERENCES events (id),
     FOREIGN KEY (user_id) REFERENCES events (id)
@@ -32,7 +32,7 @@ CREATE TABLE topics (
     description VARCHAR(500),
     event_id VARCHAR(36) NOT NULL,
     user_id VARCHAR(36) NOT NULL,
-    
+
     PRIMARY KEY (event_id, user_id),
     FOREIGN KEY (event_id) REFERENCES events (id),
     FOREIGN KEY (user_id) REFERENCES events (id)
@@ -41,7 +41,7 @@ CREATE TABLE topics (
 CREATE TABLE participants (
     event_id VARCHAR(36) NOT NULL,
     user_id VARCHAR(36) NOT NULL,
-    
+
 	PRIMARY KEY (event_id, user_id),
 	FOREIGN KEY (event_id) REFERENCES events (id),
     FOREIGN KEY (user_id) REFERENCES events (id)
