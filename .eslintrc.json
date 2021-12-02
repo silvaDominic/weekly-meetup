@@ -26,7 +26,13 @@
             }
         }
     },
+    // Overrides
     "rules": {
+        "no-multiple-empty-lines": "off",
+        "linebreak-style": "off",
+        "import/prefer-default-export": "off",
+        "no-trailing-spaces": "off",
+        "no-plusplus": "off",
         "import/extensions": [
             "error",
             "ignorePackages",

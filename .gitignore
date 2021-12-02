@@ -11,12 +11,13 @@
 # production
 dist/
 public/js/app.js
-/.idea
 
 # misc
 .DS_Store
 .env
 .env.*
+/.idea
+/*.iml
 
 npm-debug.log*
 yarn-debug.log*
