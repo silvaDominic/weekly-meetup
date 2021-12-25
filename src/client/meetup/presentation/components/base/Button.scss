@@ -1,0 +1,149 @@
+button {
+  padding: 0;
+}
+
+// General
+.btn {
+  height: $btn-line-height-standard;
+  display: inline-flex;
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+  color: $btn-color;
+  background: $btn-bg;
+  border: $btn-border;
+  box-shadow: $btn-box-shadow;
+  border-radius: $btn-border-radius;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: box-shadow, background 0.2s;
+  -moz-transition: box-shadow, background 0.2s;
+  line-height: $btn-line-height-standard;
+
+  .text-wrapper {
+    text-align: center;
+    vertical-align: baseline;
+    padding: $btn-padding-standard
+  }
+}
+
+.btn:hover, .btn.active {
+  background: $btn-bg-hover;
+  box-shadow: $btn-box-shadow-hover;
+  -moz-box-shadow: $btn-box-shadow-hover;
+}
+
+// Tall
+.btn.btn-lg {
+  line-height: $btn-line-height-tall;
+  height: $btn-line-height-tall;
+}
+
+// Tight
+.btn.btn-tight {
+
+  .text-wrapper {
+    padding: $btn-padding-tight;
+  }
+}
+
+//Block {
+.btn.btn-block {
+  display: block;
+  width: 100%;
+}
+
+// Primary
+.btn.btn-primary {
+  color: $btn-primary-color;
+  background: $btn-primary-bg;
+  border: $btn-primary-border;
+  box-shadow: $btn-primary-box-shadow;
+  -moz-box-shadow: $btn-primary-box-shadow;
+
+  &:hover, &.active {
+    box-shadow: $btn-primary-box-shadow-hover;
+    -moz-box-shadow: $btn-primary-box-shadow-hover;
+  }
+}
+
+// Secondary
+.btn.btn-secondary {
+  color: $btn-secondary-color;
+  background: $btn-secondary-bg;
+  border: $btn-secondary-border;
+  box-shadow: $btn-secondary-box-shadow;
+  -moz-box-shadow: $btn-secondary-box-shadow;
+
+  &:hover, &.active {
+    box-shadow: $btn-secondary-box-shadow-hover;
+    -moz-box-shadow: $btn-secondary-box-shadow-hover;
+  }
+}
+
+// Danger
+
+.btn.btn-danger {
+  color: $btn-danger-color;
+  background: $btn-danger-bg;
+  border: $btn-danger-border;
+  box-shadow: $btn-danger-box-shadow;
+  -moz-box-shadow: $btn-danger-box-shadow;
+
+  &:hover, &.active {
+    box-shadow: $btn-danger-box-shadow-hover;
+    -moz-box-shadow: $btn-danger-box-shadow-hover;
+  }
+}
+
+// Disabled
+.btn:disabled {
+  background: $btn-disabled-bg;
+  border: $btn-disabled-border;
+  box-shadow: none;
+  -moz-box-shadow: none;
+
+  .text-wrapper {
+    color: $btn-disabled-color !important;
+  }
+
+  .icon-wrapper {
+    background: #DCDCDC !important;
+
+    i {
+      color: $white !important;
+    }
+  }
+
+  &:hover, &.active {
+    background: $btn-disabled-bg;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    cursor: not-allowed;
+  }
+}
+
+// Outlined
+.btn.btn-outline {
+  line-height: $btn-outline-line-height;
+
+  &.btn-primary {
+    color: $btn-outline-primary-color;
+    background: $btn-outline-primary-bg;
+    border: $btn-outline-primary-border;
+    box-shadow: none;
+
+    i {
+      color: $purple;
+    }
+
+    &:hover, &.active {
+      color: $btn-outline-primary-color-hover;
+      background: $btn-outline-primary-bg-hover;
+      box-shadow: none;
+
+      i {
+        color: $white;
+      }
+    }
+  }
+}

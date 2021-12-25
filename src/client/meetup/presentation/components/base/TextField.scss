@@ -1,0 +1,24 @@
+@import '../../styles/form-fields';
+
+.form-field-input {
+  display: block;
+  height: 60px;
+  width: 100%;
+  max-width: 100%;
+  font-size: 1rem;
+  color: $black;
+  padding: 0 12px 0 12px;
+  background-color: white !important;
+  border-radius: 6px;
+  outline: none;
+  border: solid 1px #f2f2f2;
+}
+
+.hide-text {
+  font: small-caption;
+}
+
+.invalid {
+  border-color: #e35b5a !important;
+  box-shadow: 0 0 5px rgba(227, 89, 89, 0.5) !important;
+}
