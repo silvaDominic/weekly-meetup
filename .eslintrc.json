@@ -1,57 +1,93 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 13,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react",
-        "@typescript-eslint"
-    ],
-    "settings": {
-        "import/resolver": {
-            "node": {
-                "extensions": [".js", ".mjs", ".mts", ".ts", ".json"]
-            }
-        }
-    },
-    // Overrides
-    "rules": {
-        "no-multiple-empty-lines": "off",
-        "linebreak-style": "off",
-        "import/prefer-default-export": "off",
-        "no-trailing-spaces": "off",
-        "no-plusplus": "off",
-        "lines-between-class-members": "off",
-        "no-unused-vars": "off",
-        "quotes": "off",
-        "object-curly-newline": "off",
-        "class-methods-use-this": "off",
-        "dot-notation": "warn",
-        "max-len": ["warn", { "code": 120 }],
-        "no-shadow": "off",
-        "object-shorthand": "warn",
-        "@typescript-eslint/no-shadow": ["error"],
-        "import/extensions": [
-            "error",
-            "ignorePackages",
-            {
-                "js": "never",
-                "jsx": "never",
-                "ts": "never",
-                "tsx": "never"
-            }
+    "ecmaVersion": 13,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".mjs",
+          ".mts",
+          ".ts",
+          ".json"
         ]
+      }
     }
+  },
+  // -------------------- OVERRIDES --------------------
+  "rules": {
+    "no-multiple-empty-lines": "off",
+    "linebreak-style": "off",
+    "import/prefer-default-export": "off",
+    "no-trailing-spaces": "off",
+    "no-plusplus": "off",
+    "lines-between-class-members": "off",
+    "no-unused-vars": "off",
+    "quotes": "off",
+    "object-curly-newline": "off",
+    "class-methods-use-this": "off",
+    "dot-notation": "warn",
+    "max-len": [
+      "warn",
+      {
+        "code": 120
+      }
+    ],
+    "no-shadow": "off",
+    "object-shorthand": "warn",
+    "@typescript-eslint/no-shadow": [
+      "error"
+    ],
+    "no-use-before-define": [
+      "error",
+      {
+        "functions": false
+      }
+    ],
+    "react/jsx-filename-extension": [
+      2,
+      {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    ],
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "function-declaration"
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
+  }
 }
