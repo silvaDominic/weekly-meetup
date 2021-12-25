@@ -1,0 +1,91 @@
+input{
+  background-image: none !important;
+}
+
+input:invalid {
+  box-shadow: none !important;
+}
+
+input:focus, textarea:focus {
+  border: 1px solid $purple !important;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.095) inset, 0px 0px 8px rgba(100, 179, 95, 0.5)!important;
+}
+
+label:hover {
+  cursor: text !important;
+}
+
+.form-field {
+  position: relative;
+/*  height: 100%;
+  width: 100%;*/
+  margin-bottom: 1rem;
+}
+
+@mixin label-inactive {
+  font-size: 1rem;
+  transform: translateY(0);
+  -moz-transform: translateY(0);
+}
+
+@mixin label-active {
+  font-size: 0.75rem;
+  transform: translateY(-0.7rem);
+  -moz-transform: translateY(-0.7rem);
+}
+
+.form-field-label {
+  @include label-active;
+  display: block;
+  font-weight: normal;
+  left: 0;
+  margin: 0;
+  padding: 18px 12px 0;
+  position: absolute;
+  top: 0;
+  transition: all 0.4s;
+  width: 100%;
+}
+
+.form-field-required {
+  color: $red;
+  vertical-align: middle;
+}
+
+::placeholder {
+  text-transform: uppercase;
+  font-weight: normal;
+  opacity: 0.5;
+}
+
+input, textarea {
+  &.is-empty {
+    ~ .form-field-label {
+      @include label-inactive;
+    }
+  }
+
+  &:focus {
+    ~ .form-field-label {
+      @include label-active;
+    }
+  }
+
+  ~ .form-field-label.label-active {
+    @include label-active;
+  }
+}
+
+
+
+input,
+textarea,
+[contenteditable] {
+  caret-color: darkblue;
+}
+
+.errors {
+  margin-top: -0.5rem; // Offsets default margin from form-field elements
+  margin-bottom: 1rem;
+}
+

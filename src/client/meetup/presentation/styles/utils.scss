@@ -1,0 +1,57 @@
+.clear {
+  clear: both;
+}
+
+.flex-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flex-left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-center-x {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-center-y {
+  display: flex;
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fl-left {
+  float: left;
+}
+.fl-right {
+  float: right;
+}
+
+@mixin p-top($value) {
+  padding-top: $value;
+}
+
+@mixin p-right($value) {
+padding-right: $value;
+}
+
+@mixin p-bottom($value) {
+  padding-bottom: $value;
+}
+
+@mixin p-left($value) {
+  padding-left: $value;
+}

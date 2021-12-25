@@ -1,0 +1,73 @@
+// LEGACY
+$hover: #54B381;
+$disabled: #E6E6E6;
+$green-shadow: rgba(3, 169, 111, 0.5);
+$green-hover-shadow: rgba(3, 169, 111, 0.4);
+$norm-shadow: rgba(28, 32, 41, 0.1);
+$norm-hover-shadow: rgba(28, 32, 41, 0.05);
+
+// CURRENT
+
+// General
+$btn-font-size: 1rem;
+$btn-border-radius: 6px;
+$btn-font-weight: 600;
+$btn-padding-standard: 0 20px;
+$btn-padding-tight: 0 9px;
+$btn-padding-tall: 10px 20px;
+$btn-line-height-standard: 30px;
+$btn-line-height-tall: 50px;
+
+// Default
+$btn-color: $purple;
+$btn-bg: unset;
+$btn-border: none;
+$btn-box-shadow: none;
+$btn-box-shadow-hover: none;
+$btn-bg-hover: $white;
+
+// Primary
+$btn-primary-color: $white;
+$btn-primary-bg: $purple;
+$btn-primary-border: $btn-primary-bg;
+$btn-primary-box-shadow: 0 4px 8px 0 rgba(3, 169, 111, 0.5);
+$btn-primary-box-shadow-hover: 0 2px 10px 0 rgba(3, 169, 111, 0.4);
+
+// Secondary
+$btn-secondary-color: $purple;
+$btn-secondary-bg: $white;
+$btn-secondary-border: $btn-secondary-bg;
+$btn-secondary-box-shadow: 0 4px 8px 0 rgba(28, 32, 41, 0.1);
+$btn-secondary-box-shadow-hover: 0 4px 8px 0 rgba(28, 32, 41, 0.05);
+
+// Danger
+$btn-danger-color: $white;
+$btn-danger-bg: $red;
+$btn-danger-border: $btn-danger-bg;
+$btn-danger-box-shadow: 0 4px 8px 0 rgba(227, 91, 90, 0.5);
+$btn-danger-box-shadow-hover: 0 4px 8px 0 rgba(227, 91, 90, 0.3);
+
+// Split
+$btn-split-primary-color: $white;
+$btn-split-primary-bg: $purple;
+$btn-split-secondary-bg: $white;
+$btn-split-primary-border: $btn-split-secondary-bg;
+$btn-split-secondary-color: $black;
+$btn-split-secondary-border: $btn-split-primary-bg;
+
+// Outline
+$btn-outline-primary-color: $black;
+$btn-outline-primary-bg: $white;
+$btn-outline-primary-border: 1px solid $purple;
+$btn-outline-primary-bg-hover: $purple;
+$btn-outline-primary-color-hover: $white;
+$btn-outline-line-height: 28px;
+
+// Disabled
+$btn-disabled-color: #8C8C8C;
+$btn-disabled-bg: #E6E6E6;
+$btn-disabled-border: $btn-disabled-bg;
+
+// Icons
+$btn-icon-size: 1rem;
+$btn-icon-padding: $btn-padding-standard;
