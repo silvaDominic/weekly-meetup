@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import './normalize.css';
-import App from './meetup/presentation/App';
+import App from './modules/meetup/presentation/App';
 
 ReactDOM.render(
   <React.StrictMode>

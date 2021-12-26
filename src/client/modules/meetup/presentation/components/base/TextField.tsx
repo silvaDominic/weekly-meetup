@@ -33,8 +33,8 @@ export function TextField({ id, value, name, label, placeholder, rules, hideText
         className={
           `form-field-input
           ${value.length === 0 ? 'is-empty' : ''}
-          ${hideText ? 'hide-text' : ''}
-          `}
+          ${hideText ? 'hide-text' : ''}`
+        }
         style={{ paddingTop: label ? '1.2rem' : '' }}
         value={value}
         onChange={onChange}
