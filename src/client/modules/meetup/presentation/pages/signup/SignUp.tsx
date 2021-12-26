@@ -3,7 +3,7 @@ import React, { ChangeEvent, useState } from 'react';
 import { TextField } from '../../components/base/TextField';
 import { Button } from '../../components/base/Button';
 // Models
-import { SignUpFormVM } from '../../view-models/sign-up-form.viewmodel';
+import { SignUpFormVM } from '../../../../modules/meetup/presentation/view-models/sign-up-form.viewmodel';
 
 import './SignUp.scss';
 
