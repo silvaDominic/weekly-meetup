@@ -4,7 +4,7 @@ import './Button.scss';
 interface IButton {
   className?: string,
   children?: React.ReactNode,
-  onClick?(event: React.MouseEventHandler<HTMLButtonElement, MouseEvent>): void,
+  onClick?(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void,
 }
 
 Button.defaultProps = {
