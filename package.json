@@ -1,16 +1,15 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "dist/server.ts",
+  "main": "dist/server.cjs",
   "type": "module",
   "scripts": {
     "watch:build": "webpack -w",
     "watch:server": "ts-node-dev dist/server.cjs",
     "dev": "npm-run-all --parallel watch:*",
-    "start": "node dist/server.js"
+    "start": "node dist/server.cjs"
   },
   "author": "Dominic Silva",
-  "license": "MIT",
   "dependencies": {
     "@types/jsonwebtoken": "^8.5.6",
     "axios": "^0.24.0",

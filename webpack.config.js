@@ -62,8 +62,8 @@ const clientConfig = {
             options: {
               sourceMap: true,
               resources: [
-                './src/client/meetup/presentation/styles/variables/index.scss',
-                './src/client/meetup/presentation/styles/utils.scss',
+                './src/client/modules/meetup/presentation/styles/variables/index.scss',
+                './src/client/modules/meetup/presentation/styles/utils.scss',
               ],
             },
           },
