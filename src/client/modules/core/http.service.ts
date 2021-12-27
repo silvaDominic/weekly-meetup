@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = process.env.API_ROOT; // Consider using environmental.const file for this
+const BASE_URL = "http://localhost:3000"; // Consider using environmental.const file for this
 
 export const HttpService = axios.create({
   baseURL: BASE_URL,

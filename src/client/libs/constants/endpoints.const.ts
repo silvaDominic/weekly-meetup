@@ -1,2 +1,2 @@
-const BASE_URL = process.env.API_ROOT;
-export const ENDPOINT_USER = `${BASE_URL}/users`;
+const BASE_URL = "http://localhost:3000";
+export const ENDPOINT_USER = `${BASE_URL}/api/users`;
