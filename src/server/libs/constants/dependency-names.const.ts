@@ -7,6 +7,8 @@ export const CONFIG: string = "Config";
 
 export const REPO_USER: string = "UserRepository";
 
+export const SERVICE_USER: string = "UserService";
+
 export const CONTROLLER_REGISTER_USER: string = "RegisterUserController";
 export const CONTROLLER_GET_USER: string = "GetUserController";
 export const CONTROLLER_GET_ALL_USERS: string = "GetAllUsersController";

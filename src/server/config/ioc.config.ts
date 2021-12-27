@@ -10,10 +10,11 @@ import { GetUserController } from '../infrastructure/controllers/user/get-user.c
 import {
   APP, CONFIG, CONTROLLER_DELETE_USER, CONTROLLER_GET_ALL_USERS,
   CONTROLLER_GET_USER, CONTROLLER_REGISTER_USER, CONTROLLER_UPDATE_USER, DB,
-  REPO_USER, ROUTER_ROOT, ROUTER_USER,
+  REPO_USER, ROUTER_ROOT, ROUTER_USER, SERVICE_USER,
 } from '../libs/constants/dependency-names.const';
 import { UpdateUserController } from '../infrastructure/controllers/user/update-user.controller';
 import { DeleteUserController } from '../infrastructure/controllers/user/delete-user-controller';
+import { CreateNewUserService } from '../application/usecases/create-new-user.service';
 
 function registerDependencies(container: IocContainer) {
   /* eslint-disable @typescript-eslint/no-shadow */
@@ -25,7 +26,7 @@ function registerDependencies(container: IocContainer) {
   container.register(ROUTER_USER, (container: IocContainer) => new UserRouter(express.Router(), container).router);
 
   // CONTROLLERS
-  container.register(CONTROLLER_REGISTER_USER, (container: IocContainer) => new RegisterUserController(container[REPO_USER]));
+  container.register(CONTROLLER_REGISTER_USER, (container: IocContainer) => new RegisterUserController(container[SERVICE_USER]));
   container.register(CONTROLLER_GET_ALL_USERS, (container: IocContainer) => new GetAllUsersController(container[REPO_USER]));
   container.register(CONTROLLER_GET_USER, (container: IocContainer) => new GetUserController(container[REPO_USER]));
   container.register(CONTROLLER_UPDATE_USER, (container: IocContainer) => new UpdateUserController(container[REPO_USER]));
@@ -33,6 +34,9 @@ function registerDependencies(container: IocContainer) {
 
   // REPOS
   container.register(REPO_USER, (container: IocContainer) => new UserRepository(container[DB]));
+
+  // SERVICES
+  container.register(SERVICE_USER, (container: IocContainer) => new CreateNewUserService(container[REPO_USER]));
 
   // DB
   container.register(CONFIG, () => DbConfig);

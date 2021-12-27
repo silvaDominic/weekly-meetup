@@ -3,6 +3,7 @@ import { IDbQuery } from '../database/models/db-query.interface';
 import { IUserRepository } from '../../domain/models/users/user-repository.interface';
 import { UserEntity } from '../../domain/models/users/user.entity';
 import { userQueries } from '../database/queries/users.query';
+import { Email } from '../../domain/value-objects/email.value-object';
 
 const COL_EMAIL = "email";
 const COL_ID = "id";
@@ -37,8 +38,13 @@ export class UserRepository implements IUserRepository {
   }
 
   public async createUser(email: string, password: string, displayName: string): Promise<UserEntity> {
-    const query: IDbQuery = userQueries.insertUser(email, displayName, password);
-    return this.db.query(query.command, query.arguments);
+    const insertQuery: IDbQuery = userQueries.insertUser(email, displayName, password);
+    const getIdQuery: IDbQuery = userQueries.getLastInsertId();
+
+    await this.db.query(insertQuery.command, insertQuery.arguments);
+    const id = await this.db.query(getIdQuery.command);
+
+    return new UserEntity(id, new Email(email), password, displayName);
   }
 
   public async deleteUser(id: string): Promise<string> {
