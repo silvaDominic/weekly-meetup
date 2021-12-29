@@ -2,12 +2,14 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "noImplicitAny": true,
-    "module": "commonjs",
-    "target": "es5",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+    "sourceMap": true,
     "lib": [
-      "es2017"
+      "ES6"
     ],
     "types": [
       "node", "express"

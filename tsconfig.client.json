@@ -2,8 +2,8 @@
   "compilerOptions": {
     "outDir": "./public/js/",
     "noImplicitAny": true,
-    "module": "es6",
-    "target": "es6",
+    "module": "ESNext",
+    "target": "ESNext",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,

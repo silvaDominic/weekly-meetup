@@ -1,9 +1,6 @@
-import path from 'path';
-import Dotenv from 'dotenv-webpack';
-import nodeExternals from 'webpack-node-externals';
-
-// eslint-disable-next-line no-underscore-dangle
-const __dirname = path.resolve();
+const path = require('path');
+const nodeExternals = require('webpack-node-externals');
+const Dotenv = require('dotenv-webpack');
 
 const serverConfig = {
   mode: process.env.NODE_ENV || 'development',
@@ -27,7 +24,7 @@ const serverConfig = {
     extensions: ['.ts', '.js'],
   },
   output: {
-    filename: 'server.cjs',
+    filename: 'server.js',
     path: path.resolve(__dirname, 'dist'),
   },
   target: 'node',
@@ -80,4 +77,4 @@ const clientConfig = {
   },
 };
 
-export default [serverConfig, clientConfig];
+module.exports = [serverConfig, clientConfig];
