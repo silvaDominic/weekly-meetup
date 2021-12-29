@@ -1,5 +1,4 @@
 import { PlainObject } from '../../libs/types/object-literal.type';
-import { generateHashSync } from '../../libs/utils/hash.util';
 
 export class CreateNewUserRequest {
   readonly email: string;
@@ -8,7 +7,7 @@ export class CreateNewUserRequest {
 
   constructor(props: PlainObject) {
     this.email = props.email;
-    this.password = generateHashSync(props.password);
+    this.password = props.password;
     this.displayName = props.displayName;
   }
 }

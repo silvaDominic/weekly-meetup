@@ -21,9 +21,10 @@ export class UserRepository implements IUserRepository {
     return users;
   }
 
-  public async findUserByEmail(email: string): Promise<UserEntity> {
+  public async findUserByEmail(email: string): Promise<Array<UserEntity>> {
     const query: IDbQuery = userQueries.findUser(COL_EMAIL, email);
-    return this.db.query(query.command, query.arguments);
+    const [user] = await this.db.query(query.command, query.arguments);
+    return user;
   }
 
   public async findUserById(id: string): Promise<UserEntity> {
@@ -50,5 +51,18 @@ export class UserRepository implements IUserRepository {
   public async deleteUser(id: string): Promise<string> {
     const query: IDbQuery = userQueries.deleteUser(id);
     return this.db.query(query.command, query.arguments);
+  }
+
+  /**
+   * Checks DB to see if a user already exists.
+   *
+   * The DB will return an empty array if no other users are found.
+   * Exists = [{...}]
+   * Does not exist = []
+   * @param email
+   */
+  public async exists(email: string): Promise<boolean> {
+    const users = await this.findUserByEmail(email);
+    return users.length > 0;
   }
 }
