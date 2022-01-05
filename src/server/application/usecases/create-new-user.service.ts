@@ -1,9 +1,7 @@
 // Models
-import { ICreateNewUserService } from '../create-new-user.interface';
 import { CreateNewUserRequest } from '../dtos/new-user-request.dto';
 import { IUserRepository } from '../../domain/models/users/user-repository.interface';
 import { UserEntity } from '../../domain/models/users/user.entity';
-import { PlainObject } from '../../libs/types/object-literal.type';
 import { UserAlreadyExistsError } from '../../infrastructure/errors/user-already-exists.error';
 import { ValidationError } from '../../infrastructure/errors/validation-error';
 // Helpers
@@ -11,7 +9,7 @@ import { EMAIL_REGEX } from '../../libs/constants/regex.const';
 import { generateHashSync } from '../../libs/utils/hash.util';
 import { IValidationResult } from '../validation-result.interface';
 
-export class CreateNewUserService implements ICreateNewUserService {
+export class CreateNewUserService {
   useRepository: IUserRepository;
 
   constructor(useRepository: IUserRepository) {
