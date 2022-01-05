@@ -9,6 +9,10 @@ export class Email {
     return email.trim().toLowerCase();
   }
 
+  get value(): string {
+    return this.address;
+  }
+
   protected validate(address: string): void {
     // Regex used from: https://datatracker.ietf.org/doc/html/rfc2822#section-3.4.1
     // Test cases covered at: https://regexr.com/2rhq7

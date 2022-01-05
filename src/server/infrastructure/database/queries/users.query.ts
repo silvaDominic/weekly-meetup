@@ -47,12 +47,6 @@ function deleteUser(id: string): IDbQuery {
   };
 }
 
-function getLastInsertId(): IDbQuery {
-  return {
-    command: 'SELECT LAST_INSERT_ID()',
-  };
-}
-
 export const userQueries = {
   insertUser,
   selectAllUsers,
@@ -60,5 +54,4 @@ export const userQueries = {
   findUser,
   updateUser,
   deleteUser,
-  getLastInsertId,
 };

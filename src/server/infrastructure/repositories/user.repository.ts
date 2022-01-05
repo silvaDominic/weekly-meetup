@@ -18,19 +18,22 @@ export class UserRepository implements IUserRepository {
   public async findAllUsers(): Promise<Array<UserEntity>> {
     const query: IDbQuery = userQueries.selectAllUsers();
     const [users] = await this.db.query(query.command);
+
     return users;
   }
 
-  public async findUserByEmail(email: string): Promise<Array<UserEntity>> {
+  public async findUserByEmail(email: string): Promise<UserEntity> {
     const query: IDbQuery = userQueries.findUser(COL_EMAIL, email);
-    const [user] = await this.db.query(query.command, query.arguments);
-    return user;
+    const [[user]] = await this.db.query(query.command, query.arguments);
+
+    return new UserEntity(user.id, new Email(user.email), user.password, user.displayName);
   }
 
   public async findUserById(id: string): Promise<UserEntity> {
     const query: IDbQuery = userQueries.findUser(COL_ID, id);
-    const [user] = await this.db.query(query.command, query.arguments);
-    return user[0];
+    const [[user]] = await this.db.query(query.command, query.arguments);
+
+    return new UserEntity(user.id, new Email(user.email), user.password, user.displayName);
   }
 
   public async updateUser(id: string, email: string, password: string, displayName: string): Promise<UserEntity> {
@@ -40,12 +43,9 @@ export class UserRepository implements IUserRepository {
 
   public async createUser(email: string, password: string, displayName: string): Promise<UserEntity> {
     const insertQuery: IDbQuery = userQueries.insertUser(email, displayName, password);
-    const getIdQuery: IDbQuery = userQueries.getLastInsertId();
+    const [result] = await this.db.query(insertQuery.command, insertQuery.arguments);
 
-    await this.db.query(insertQuery.command, insertQuery.arguments);
-    const id = await this.db.query(getIdQuery.command);
-
-    return new UserEntity(id, new Email(email), password, displayName);
+    return new UserEntity(result.insertId, new Email(email), password, displayName);
   }
 
   public async deleteUser(id: string): Promise<string> {
@@ -53,16 +53,8 @@ export class UserRepository implements IUserRepository {
     return this.db.query(query.command, query.arguments);
   }
 
-  /**
-   * Checks DB to see if a user already exists.
-   *
-   * The DB will return an empty array if no other users are found.
-   * Exists = [{...}]
-   * Does not exist = []
-   * @param email
-   */
   public async exists(email: string): Promise<boolean> {
     const users = await this.findUserByEmail(email);
-    return users.length > 0;
+    return users !== undefined;
   }
 }

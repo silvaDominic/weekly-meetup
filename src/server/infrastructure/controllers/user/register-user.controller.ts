@@ -17,7 +17,7 @@ export class RegisterUserController {
       return res.send(new UserResponse(newUser));
     } catch (err: any) {
       console.log('Route Error: ', err);
-      return res.status(500).send({ msg: 'POST USER Route Error', error: err.message });
+      return res.status(500).send(JSON.stringify(err));
     }
   }
 }
