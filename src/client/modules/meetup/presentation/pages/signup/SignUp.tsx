@@ -1,17 +1,21 @@
 import React, { ChangeEvent, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 // Comps
 import { TextField } from '../../components/base/TextField';
 import { Button } from '../../components/base/Button';
 // Models
 import { SignUpFormVM } from '../../view-models/sign-up-form.viewmodel';
+import { ErrorAlert } from '../../modal-alert';
 
+import { ROUTE_HOME } from '../../../../../libs/constants/routes.const';
 import './SignUp.scss';
 
-export function SignUp() {
+export function SignUp({ userRepository }: { userRepository: any }) {
   const [signUpForm, setSignUpForm] = useState(new SignUpFormVM());
+  const navigate = useNavigate();
 
   return (
-    <main id="sign-up-container">
+    <main id="sign-up-container" className="container">
       <div className="form-wrapper">
         <form id="sign-up-form" style={{ marginBlockEnd: "0" }}>
           <TextField
@@ -61,7 +65,15 @@ export function SignUp() {
   }
 
   function submitForm(): void {
-    console.log(signUpForm);
+    userRepository.createUser(signUpForm.email, signUpForm.password, signUpForm.displayName)
+      .then((res: any) => {
+        alert("New user created!");
+        navigate(ROUTE_HOME);
+      })
+      .catch((err: any) => {
+        console.error("Request failed: ", err);
+        ErrorAlert();
+      });
   }
 }
 

@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
+import App from './modules/meetup/presentation/App';
+
 import './index.css';
 import './normalize.css';
-import App from './modules/meetup/presentation/App';
 
 ReactDOM.render(
   <React.StrictMode>
