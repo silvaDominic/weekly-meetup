@@ -13,8 +13,8 @@ export class RegisterUserController {
   public async registerUser(req: Request, res: Response): Promise<Response> {
     try {
       const user = new CreateNewUserRequest(req.body);
-      const newUser = await this.createUserService.createUser(user);
-      return res.send(new UserResponse(newUser));
+      const newUserToken = await this.createUserService.createUser(user);
+      return res.send(newUserToken);
     } catch (err: any) {
       console.log('Route Error: ', err);
       return res.status(500).send(JSON.stringify(err));

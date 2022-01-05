@@ -1,10 +1,12 @@
+import jwt from 'jsonwebtoken';
+// Models
 import { IUserRepository } from '../../domain/models/users/user-repository.interface';
 import { UserCredentials } from '../../libs/types/user-credentials.type';
-import { UserEntity } from '../../domain/models/users/user.entity';
+
 import { ValidationError } from '../../infrastructure/errors/validation-error';
 import { UserNotFoundError } from '../../infrastructure/errors/user-not-found.error';
-
 import { compareHashAsync } from '../../libs/utils/hash.util';
+import { JWT_EXPIRATION, JWT_SECRET } from '../../libs/constants/environement.const';
 
 export class LoginUserService {
   userRepository: IUserRepository;
@@ -13,7 +15,7 @@ export class LoginUserService {
     this.userRepository = userRepository;
   }
 
-  public async loginUser(credentials: UserCredentials): Promise<UserEntity> {
+  public async loginUser(credentials: UserCredentials): Promise<string> {
     // Ensure credentials are valid
     if (!validateUserCredentials(credentials)) {
       throw new ValidationError("Malformed credentials");
@@ -31,7 +33,12 @@ export class LoginUserService {
       throw new ValidationError("Invalid credentials");
     }
 
-    return user;
+    // Returned signed token
+    return jwt.sign(
+      { ...user },
+      JWT_SECRET,
+      { expiresIn: JWT_EXPIRATION },
+    );
   }
 }
 
