@@ -37,6 +37,9 @@ const serverConfig = {
 const clientConfig = {
   mode: process.env.NODE_ENV || 'development',
   entry: './src/client/index.tsx',
+  plugins: [
+    new Dotenv(),
+  ],
   devtool: 'inline-source-map',
   module: {
     rules: [
