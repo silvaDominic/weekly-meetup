@@ -1,5 +1,5 @@
 import { IDbQuery } from '../models/db-query.interface';
-import { IUsersTable } from '../models/db.interface';
+import { IUserTable } from '../models/db.interface';
 
 function insertUser(email: string, displayName: string, password: string): IDbQuery {
   return {
@@ -29,7 +29,7 @@ function findUser(column: string, value: string): IDbQuery {
 }
 
 function updateUser(id: string, email: string, password: string, displayName: string): IDbQuery {
-  const queryObject: IUsersTable = {};
+  const queryObject: IUserTable = {};
   if (email !== undefined) queryObject.email = email;
   if (password !== undefined) queryObject.password = password;
   if (displayName !== undefined) queryObject.display_name = displayName;

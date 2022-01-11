@@ -4,6 +4,7 @@ import { IUserRepository } from '../../domain/models/users/user-repository.inter
 import { UserEntity } from '../../domain/models/users/user.entity';
 import { userQueries } from '../database/queries/users.query';
 import { Email } from '../../domain/value-objects/email.value-object';
+import { IUserTable } from '../database/models/db.interface';
 
 const COL_EMAIL = "email";
 const COL_ID = "id";
@@ -24,16 +25,16 @@ export class UserRepository implements IUserRepository {
 
   public async findUserByEmail(email: string): Promise<UserEntity> {
     const query: IDbQuery = userQueries.findUser(COL_EMAIL, email);
-    const [[user]] = await this.db.query(query.command, query.arguments);
+    const [[user]]: IUserTable[][] = await this.db.query(query.command, query.arguments);
 
-    return new UserEntity(user.id, new Email(user.email), user.password, user.displayName);
+    return new UserEntity(user.id, new Email(user.email), user.password, user.display_name);
   }
 
   public async findUserById(id: string): Promise<UserEntity> {
     const query: IDbQuery = userQueries.findUser(COL_ID, id);
-    const [[user]] = await this.db.query(query.command, query.arguments);
+    const [[user]]: IUserTable[][] = await this.db.query(query.command, query.arguments);
 
-    return new UserEntity(user.id, new Email(user.email), user.password, user.displayName);
+    return new UserEntity(user.id, new Email(user.email), user.password, user.display_name);
   }
 
   public async updateUser(id: string, email: string, password: string, displayName: string): Promise<UserEntity> {

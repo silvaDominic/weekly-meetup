@@ -1,4 +1,4 @@
-export interface IUsersTable {
+export interface IUserTable {
   id?: string,
   email?: string,
   password?: string,

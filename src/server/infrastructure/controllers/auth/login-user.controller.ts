@@ -13,6 +13,7 @@ export class LoginUserController {
     try {
       const auth = parseCredentials(req.headers.authorization);
       const user = await this.loginUserService.loginUser(auth);
+      req.session.userId = user.id;
       return res.send(user);
     } catch (err) {
       console.log('Route Error: ', err);
