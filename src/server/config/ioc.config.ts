@@ -1,17 +1,32 @@
 import express from 'express';
+import session from 'express-session';
+import mySqlSession from 'express-mysql-session';
 import { IocContainer } from '../libs/utils/ioc-container.util';
 import { UserRepository } from '../infrastructure/repositories/user.repository';
 import { MySqlDatabaseService } from '../infrastructure/database/database.service';
 import { DbConfig } from './db.config';
+import { SessionConfig } from './session.config';
 import { UserRouter } from '../infrastructure/routes/users.router';
 import { LoginRouter } from '../infrastructure/routes/login.router';
 import { RegisterUserController } from '../infrastructure/controllers/user/register-user.controller';
 import { GetAllUsersController } from '../infrastructure/controllers/user/get-all-users.controller';
 import { GetUserController } from '../infrastructure/controllers/user/get-user.controller';
 import {
-  APP, CONFIG, CONTROLLER_DELETE_USER, CONTROLLER_GET_ALL_USERS,
-  CONTROLLER_GET_USER, CONTROLLER_LOGIN_USER, CONTROLLER_REGISTER_USER, CONTROLLER_UPDATE_USER, DB,
-  REPO_USER, ROUTER_LOGIN, ROUTER_ROOT, ROUTER_USER, SERVICE_CREATE_NEW_USER, SERVICE_LOGIN_USER,
+  APP,
+  CONTROLLER_DELETE_USER,
+  CONTROLLER_GET_ALL_USERS,
+  CONTROLLER_GET_USER,
+  CONTROLLER_LOGIN_USER,
+  CONTROLLER_REGISTER_USER,
+  CONTROLLER_UPDATE_USER,
+  DB,
+  REPO_USER,
+  ROUTER_LOGIN,
+  ROUTER_ROOT,
+  ROUTER_USER,
+  SERVICE_CREATE_NEW_USER,
+  SERVICE_LOGIN_USER,
+  SESSION_STORE, SESSION,
 } from '../libs/constants/dependency-names.const';
 import { UpdateUserController } from '../infrastructure/controllers/user/update-user.controller';
 import { DeleteUserController } from '../infrastructure/controllers/user/delete-user-controller';
@@ -45,10 +60,18 @@ function registerDependencies(container: IocContainer) {
   container.register(SERVICE_LOGIN_USER, (container: IocContainer) => new LoginUserService(container[REPO_USER]));
 
   // DB
-  container.register(CONFIG, () => DbConfig);
   container.register(DB, (container: IocContainer) => {
-    const db = new MySqlDatabaseService(container[CONFIG]);
+    const db = new MySqlDatabaseService(DbConfig);
     return db.connect();
+  });
+  container.register(SESSION, (container: IocContainer) => session({
+    ...SessionConfig,
+    store: container[SESSION_STORE],
+  }));
+
+  container.register(SESSION_STORE, (container: IocContainer) => {
+    const MySqlStore = mySqlSession(session);
+    return new MySqlStore({}, container[DB]);
   });
 }
 

@@ -8,7 +8,7 @@ import { UserCredentials } from '../types/user-credentials.type';
 
 export function parseCredentials(credentials: string): UserCredentials {
   if (credentials.length === 0 || !credentials.startsWith("Basic")) {
-    throw new Error("Credentials are either empty or not of type 'Basic'");
+    throw new Error("Credentials are either empty or not of type 'Basic'.");
   }
 
   const result: UserCredentials = { username: "", password: "" };

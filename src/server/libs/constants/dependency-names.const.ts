@@ -4,7 +4,8 @@ export const ROUTER_USER: string = "UserRouter";
 export const ROUTER_LOGIN: string = "LoginRouter";
 
 export const DB: string = "Database";
-export const CONFIG: string = "Config";
+export const SESSION: string = "Session";
+export const SESSION_STORE: string = "SessionStore";
 
 export const REPO_USER: string = "UserRepository";
 
